@@ -5,12 +5,6 @@ const jobApplicationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-
-    fullName:{
-        type: String,
-        required: true
-    },
-    
     answers: {
         type: [String],
         required: true
