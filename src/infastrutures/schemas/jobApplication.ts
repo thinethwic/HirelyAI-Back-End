@@ -25,6 +25,7 @@ const jobApplicationSchema = new mongoose.Schema({
     rating: {
         type: String
     }
+    
 
 }
 )
