@@ -1,5 +1,6 @@
 import { NextFunction,Request, Response } from "express";
 import jobApplication from "../infastrutures/schemas/jobApplication";
+import { generateRating } from "./rating";
 
 
 export const createJobApplication = async (req:Request,res:Response,next:NextFunction) => {
@@ -8,6 +9,7 @@ export const createJobApplication = async (req:Request,res:Response,next:NextFun
         const JobApplication = req.body;
         console.log(JobApplication);
         const createJobApplication = await jobApplication.create(JobApplication);
+        generateRating(createJobApplication._id)
         return res.status(201) .send(); 
     } catch (error) {
         next(error); 

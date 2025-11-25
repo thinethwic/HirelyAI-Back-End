@@ -12,6 +12,22 @@ const GlobalErrorHaddelingMiddelware =(error: Error, req: Request, res: Response
             console.log(error);
             return res.status(400) .json({message: error.message.replaceAll("\n","")});
             break;
+            
+        case "Unauthenticated":
+            console.log(error); 
+            return res.status(401).json({message: error.message.replaceAll("\n","")}); 
+            break;     
+
+        case "Unauthenticated":
+            console.log(error); 
+            return res.status(401).json({message: error.message.replaceAll("\n","")}); 
+            break; 
+            
+        case "Error":
+            if(error.message === "Unauthenticated"){
+                console.log(error);
+                return res.status(401).json({message: error.message.replaceAll("\n","")}); 
+            }
     
         default:
             console.log(error);
